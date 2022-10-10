@@ -1,8 +1,26 @@
-<h1>List of our flats</h1>
-<p><%= link_to "New flat", new_flat_path %></p>
-<ul>
-  <% @flats.each do |flat| %>
-    <li><%=flat.name %></li>
-    <p><%= link_to "More info", flat_path(flat) %> <%= link_to "Edit", edit_flat_path(flat) %> <%= link_to "Delete", flat_path(flat),  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></p>
-  <% end %>
-</ul>
+<div class="container text-center">
+  <h1>List of our flats</h1>
+  <div class="row">
+    <% @flats.each do |flat| %>
+      <div class="col-md-6 col-lg-4">
+        <div class="card" style="width: 18rem;">
+          <img src="<%= flat.img_url %>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><%=flat.name %></h5>
+            <p class="card-text"><%= flat.description %></p>
+            <p class="card-text"><%= flat.address %></p>
+              <div class="card-icons d-flex justify-content-around">
+                <p><i class="fa-solid fa-euro-sign"></i></p>
+                <p><i class="fa-solid fa-person"></i></p>
+              </div>
+            <div>
+              <%= link_to "More info", flat_path(flat), class: "btn btn-primary" %>
+              <%= link_to "Edit", edit_flat_path(flat), class: "btn btn-primary" %>
+              <%= link_to "Delete", flat_path(flat), class: "btn btn-primary",  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
