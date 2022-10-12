@@ -1,17 +1,19 @@
 <div class="container text-center">
-  <h1>List of our flats</h1>
+  <h1 class="display-3 my-4">Our flats</h1>
   <div class="row">
     <% @flats.each do |flat| %>
       <div class="col-md-6 col-lg-4">
-        <div class="card" style="width: 18rem;">
-          <img src="<%= flat.img_url %>" class="card-img-top" alt="...">
+        <div class="card mb-5">
+          <div>
+            <img src="<%= flat.img_url %>" class="card-img-top card-img" alt="...">
+          </div>
           <div class="card-body">
             <h5 class="card-title"><%=flat.name %></h5>
             <p class="card-text"><%= flat.description %></p>
-            <p class="card-text"><%= flat.address %></p>
+            <p class=""><%= flat.address %></p>
               <div class="card-icons d-flex justify-content-around">
-                <p><i class="fa-solid fa-euro-sign"></i></p>
-                <p><i class="fa-solid fa-person"></i></p>
+                <p> <%= flat.price_per_night %> <i class="fa-solid fa-euro-sign"></i></p>
+                <p><%= '<i class="fa-solid fa-person"></i>'.html_safe * flat.number_of_guests%></p>
               </div>
             <div>
               <%= link_to "More info", flat_path(flat), class: "btn btn-primary" %>
