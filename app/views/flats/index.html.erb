@@ -3,11 +3,11 @@
   <div class="row">
     <% @flats.each do |flat| %>
       <div class="col-md-6 col-lg-4">
-        <div class="card mb-5">
+        <div class="index card mb-5">
           <div>
             <img src="<%= flat.img_url %>" class="card-img-top card-img" alt="...">
           </div>
-          <div class="card-body">
+          <div class="index card-body">
             <h5 class="card-title"><%=flat.name %></h5>
             <p class="card-text"><%= flat.description %></p>
             <p class=""><%= flat.address %></p>
